@@ -1,0 +1,14 @@
+name: Build and Upload on Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-and-upload:
+    runs-on: windows-latest
+    steps:
+      - name: Get tag name
+        shell: pwsh
+        run: Write-Output $Env:GITHUB_REF
